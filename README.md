@@ -29,7 +29,7 @@ OK - reads 12345 Operations per second|OPS=12345
 
 ### 3) Remove tmp file for nagios check
 ```
-$ rm /tmp/check_mysql_innodb_row_operations.dat
+$ rm /tmp/check_mysql_innodb_row_operations*
 ```
 
 ### 4) Set up Nagios
