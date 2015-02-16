@@ -55,11 +55,16 @@ end.parse!
 
 class CheckMysqlInnodbRowOperations
 
-  # tmp file path
-  @@tmp_filename = '/tmp/check_mysql_innodb_row_operations.dat'
 
   def initialize(options)
 
+    # Which operation
+    operation = options[:operation]
+    operation = 'reads' if operation.nil?
+
+    # tmp file path
+    @@tmp_filename = "/tmp/check_mysql_innodb_row_operations_#{operation}.dat"
+    
     # Get last data
     last_data = ''
     if File.exist?(@@tmp_filename)
@@ -101,9 +106,6 @@ class CheckMysqlInnodbRowOperations
         puts "OK - Calculation is failed. Because time variance is under one second. Try again Later."
         exit 0
       else
-        # Which operation
-        operation = options[:operation]
-        operation = 'reads' if operation.nil?
         # Make Operations per second
         ops =  (values[:"#{operation}"].to_i - last_data["#{operation}"].to_i) / time_variance
         # Check
