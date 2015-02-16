@@ -14,6 +14,9 @@ $ bundle
 ```
 
 2) Run script
+
+Check reads Operations. Set option "-o reads".
+
 ```
 $ ruby check_mysql_innodb_row_operations.rb -H localhost -u username -p xxxx -o reads -w 100000 -c 200000
 OK - Current Status is saved. values:{:inserts=>"10000000", :updates=>"10000000", :deletes=>"10000000", :reads=>"10000000", :unixtime=>1424072459}
