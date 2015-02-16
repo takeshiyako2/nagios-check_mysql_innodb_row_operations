@@ -15,7 +15,9 @@ $ bundle
 
 2) Run script
 
-Check reads Operations. Set option "-o reads".
+Choice operation with -o option. 
+You can choice with inserts, updates, deletes or reads.
+Default operation is reads. 
 
 ```
 $ ruby check_mysql_innodb_row_operations.rb -H localhost -u username -p xxxx -o reads -w 100000 -c 200000
